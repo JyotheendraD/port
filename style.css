@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css?family=Cutive+Mono");
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 20px;
+}
+
+body {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-size: 3.3em;
+    line-height: 1.1;
+    background: yellowgreen;
+    overflow-x: hidden;
+}
+
+label .menu {
+    position: absolute;
+    right: -100px;
+    top: -100px;
+    z-index: 100;
+    width: 200px;
+    height: 200px;
+    background: black;
+    border-radius: 50% 50% 50% 50%;
+    transition: 0.5s ease-in-out;
+    box-shadow: 0 0 0 0 yellowgreen, 0 0 0 0 yellowgreen;
+    cursor: pointer;
+}
+
+label .hamburger {
+    position: absolute;
+    top: 135px;
+    left: 50px;
+    width: 30px;
+    height: 2px;
+    background: yellowgreen;
+    display: block;
+    transform-origin: center;
+    transition: 0.5s ease-in-out;
+}
+
+label .hamburger:after,
+label .hamburger:before {
+    transition: 0.20s ease-in-out;
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: yellowgreen;
+}
+
+label .hamburger:before {
+    top: -13px;
+}
+
+label .hamburger:after {
+    bottom: -13px;
+}
+
+label input {
+    display: none;
+}
+
+label input:checked+.menu {
+    box-shadow: 0 0 0 100vw black, 0 0 0 100vh black;
+}
+
+label input:checked+.menu .hamburger {
+    transform: rotate(45deg);
+}
+
+label input:checked+.menu .hamburger:after {
+    transform: rotate(90deg);
+    bottom: 0;
+}
+
+label input:checked+.menu .hamburger:before {
+    transform: rotate(90deg);
+    top: 0;
+}
+
+label input:checked+.menu+ul {
+    opacity: 1;
+}
+
+label ul {
+    z-index: 200;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: 0.25s 0s ease-in-out;
+}
+
+label a {
+    margin-bottom: 1em;
+    display: block;
+    color: yellowgreen;
+    text-decoration: none;
+}
+
+h1 {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    text-align: center;
+}
+
+.loader-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: yellowgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader {
+    animation: rotate 1s infinite;
+    height: 50px;
+    width: 50px;
+}
+
+.loader:before,
+.loader:after {
+    border-radius: 50%;
+    content: '';
+    display: block;
+    height: 20px;
+    width: 20px;
+}
+
+.loader:before {
+    animation: ball1 2s infinite;
+    background-color: yellowgreen;
+    box-shadow: 30px 0 0 yellowgreen;
+    margin-bottom: 10px;
+}
+
+.loader:after {
+    animation: ball2 2s infinite;
+    background-color: yellowgreen;
+    box-shadow: 30px 0 0 yellowgreen;
+}
+
+@keyframes rotate {
+    0% {
+        -webkit-transform: rotate(0deg) scale(0.8);
+        -moz-transform: rotate(0deg) scale(0.8);
+    }
+    50% {
+        -webkit-transform: rotate(360deg) scale(1.2);
+        -moz-transform: rotate(360deg) scale(1.2);
+    }
+    100% {
+        -webkit-transform: rotate(720deg) scale(0.8);
+        -moz-transform: rotate(720deg) scale(0.8);
+    }
+}
+
+@keyframes ball1 {
+    0% {
+        box-shadow: 30px 0 0 yellowgreen;
+    }
+    50% {
+        box-shadow: 0 0 0 yellowgreen;
+        margin-bottom: 0;
+        -webkit-transform: translate(15px, 15px);
+        -moz-transform: translate(15px, 15px);
+    }
+    100% {
+        box-shadow: 30px 0 0 yellowgreen;
+        margin-bottom: 10px;
+    }
+}
+
+@keyframes ball2 {
+    0% {
+        box-shadow: 30px 0 0 yellowgreen;
+    }
+    50% {
+        box-shadow: 0 0 0 yellowgreen;
+        margin-top: -20px;
+        -webkit-transform: translate(15px, 15px);
+        -moz-transform: translate(15px, 15px);
+    }
+    100% {
+        box-shadow: 30px 0 0 yellowgreen;
+        margin-top: 0;
+    }
+}
